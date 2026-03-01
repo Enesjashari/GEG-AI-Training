@@ -1,7 +1,7 @@
 
 # CRUD me list,array x
-# Dimenzionet
-#Shape
+# Dimenzionet x
+#Shape 
 #Reshaping
 # Join
 # Search
