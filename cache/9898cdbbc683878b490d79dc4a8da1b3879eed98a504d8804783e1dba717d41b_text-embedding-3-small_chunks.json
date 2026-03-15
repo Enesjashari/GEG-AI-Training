@@ -1,0 +1,12 @@
+[
+  {
+    "page_number": 1,
+    "section": "General",
+    "text": "Alex Morgan\nSenior Software Engineer | Distributed Systems | Cloud Architecture | AI■Ready Systems\nalex.morgan@email.com  linkedin.com/in/alexmorgan  github.com/alexmorgan  Remote\nProfessional Experience\nSenior Software Engineer – Global Cloud Systems (2019 – Present)\n Architected scalable microservice platforms serving millions of users across distributed cloud\nenvironments.\n Designed high performance APIs in Python and Go, reducing response latency by 45%.\n Led migration of legacy monolith systems into containerized Kubernetes infrastructure.\n Implemented CI/CD pipelines improving deployment frequency by 60%.\n Mentored engineering teams and established modern software architecture standards.\nSoftware Engineer – Digital Platforms Inc (2014 – 2019)\n Developed enterprise web applications using Python, Django, and React.\n Built high availability backend services processing over 5M transactions daily.\n Implemented event driven systems using Kafka and Redis streams.\n Improved database performance by optimizing PostgreSQL queries and indexing.\nSoftware Developer – Tech Innovations Ltd (2010 – 2014)\n Built backend services and internal tools used across multiple engineering teams.\n Implemented RESTful APIs and authentication systems with OAuth2 and JWT.\n Collaborated with product teams to design scalable application architectures.\nTechnical Skills\n Languages: Python, Go, JavaScript, TypeScript\n Frameworks: Django, FastAPI, Node.js, React\n Cloud & DevOps: AWS, Docker, Kubernetes, Terraform, CI/CD\n Databases: PostgreSQL, Redis, MongoDB\n Architecture: Microservices, Distributed Systems, Event■Driven Design\nEducation\nBSc Computer Science – University of Technology\nCertifications\n AWS Certified Solutions Architect\n Certified Kubernetes Administrator\n Advanced System Design"
+  },
+  {
+    "page_number": 2,
+    "section": "General",
+    "text": "Achievements\n Designed large scale distributed systems handling millions of daily requests.\n Led engineering teams delivering mission critical software platforms.\n Recognized for innovation in scalable cloud architectures."
+  }
+]
