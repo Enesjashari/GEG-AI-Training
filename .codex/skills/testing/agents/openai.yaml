@@ -1,0 +1,4 @@
+interface:
+  display_name: "Testing"
+  short_description: "Write and fix practical tests"
+  default_prompt: "Use $testing to add or repair tests for this codebase."
