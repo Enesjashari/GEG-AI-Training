@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sample Skill"
+  short_description: "Create and use Sample Skill workflows"
+  default_prompt: "Use $sample-skill to help with the target task."

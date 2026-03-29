@@ -1,0 +1,4 @@
+interface:
+  display_name: "Website Builder"
+  short_description: "Create and use Website Builder workflows"
+  default_prompt: "Use $website-builder to help with the target task."

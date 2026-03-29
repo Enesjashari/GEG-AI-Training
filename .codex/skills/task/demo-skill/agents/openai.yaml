@@ -1,0 +1,4 @@
+interface:
+  display_name: "Demo Skill"
+  short_description: "Create and use Demo Skill workflows"
+  default_prompt: "Use $demo-skill to help with the target task."

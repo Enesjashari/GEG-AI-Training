@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skill Builder"
+  short_description: "Create reusable Codex skills fast"
+  default_prompt: "Use $skill-builder to create a new reusable skill in this workspace."
