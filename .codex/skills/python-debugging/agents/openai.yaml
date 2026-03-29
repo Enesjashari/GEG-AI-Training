@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python Debugging"
+  short_description: "Investigate Python bugs and verify root-cause fixes"
+  default_prompt: "Use $python-debugging to reproduce this Python issue, isolate the root cause, implement a fix, and verify it with targeted tests or commands."
