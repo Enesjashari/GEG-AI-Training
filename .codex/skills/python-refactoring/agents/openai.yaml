@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python Refactoring"
+  short_description: "Refactor Python code while preserving behavior"
+  default_prompt: "Use $python-refactoring to clean up this Python code incrementally, preserve behavior, and verify the changes with targeted tests or commands."
