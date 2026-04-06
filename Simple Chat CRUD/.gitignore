@@ -1,0 +1,4 @@
+backend/.venv/
+backend/chat_app.db
+frontend/node_modules/
+frontend/dist/
