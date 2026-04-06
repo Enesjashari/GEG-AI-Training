@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX MOTORS — The World's Most Exclusive Automobiles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C96A;
+    --gold-dim: #8A6D2A;
+    --black: #080808;
+    --dark: #0E0E0E;
+    --card-bg: #111111;
+    --mid: #1A1A1A;
+    --border: rgba(201,168,76,0.18);
+    --text: #E8E0D0;
+    --muted: #888;
+    --white: #F5F0E8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 2px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 60px;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.95), transparent);
+    backdrop-filter: blur(4px);
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 6px;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .logo span { color: var(--white); }
+  nav ul { list-style: none; display: flex; gap: 38px; }
+  nav ul li a {
+    font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+    transition: color 0.3s;
+  }
+  nav ul li a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+    padding: 0 60px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 60% 70% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 80% at 50% 110%, rgba(201,168,76,0.04) 0%, transparent 60%),
+      var(--black);
+  }
+
+  /* animated grid lines */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: gridShift 20s linear infinite;
+  }
+  @keyframes gridShift {
+    from { transform: translateY(0); }
+    to   { transform: translateY(80px); }
+  }
+
+  .hero-label {
+    font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    animation: fadeUp 1s ease both;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 9vw, 130px);
+    line-height: 0.95;
+    font-weight: 300;
+    color: var(--white);
+    animation: fadeUp 1s 0.15s ease both;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 11px; letter-spacing: 2px; color: var(--muted); max-width: 380px; line-height: 1.8;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+  .hero-cta {
+    margin-top: 48px;
+    display: flex; gap: 20px; align-items: center;
+    animation: fadeUp 1s 0.45s ease both;
+  }
+  .btn-gold {
+    background: var(--gold); color: var(--black);
+    padding: 14px 38px; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 400;
+    transition: background 0.3s, transform 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--gold);
+    padding: 14px 38px; font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+    border: 1px solid var(--border); cursor: pointer; font-family: 'Montserrat', sans-serif;
+    text-decoration: none; display: inline-block;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+
+  /* hero stat strip */
+  .hero-stats {
+    position: absolute; bottom: 50px; right: 60px;
+    display: flex; gap: 52px;
+    animation: fadeUp 1s 0.6s ease both;
+  }
+  .stat { text-align: right; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; color: var(--gold); letter-spacing: 2px;
+  }
+  .stat-lbl { font-size: 8px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
+
+  /* scroll indicator */
+  .scroll-hint {
+    position: absolute; bottom: 30px; left: 60px;
+    font-size: 8px; letter-spacing: 4px; color: var(--muted); text-transform: uppercase;
+    display: flex; align-items: center; gap: 14px;
+    animation: fadeUp 1s 0.75s ease both;
+  }
+  .scroll-line {
+    width: 40px; height: 1px; background: var(--gold-dim);
+    position: relative; overflow: hidden;
+  }
+  .scroll-line::after {
+    content: '';
+    position: absolute; left: -40px; top: 0;
+    width: 40px; height: 1px; background: var(--gold);
+    animation: slideRight 1.6s ease-in-out infinite;
+  }
+  @keyframes slideRight { to { left: 40px; } }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section { padding: 100px 60px; }
+  .section-label {
+    font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 5vw, 68px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--white);
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .divider {
+    width: 80px; height: 1px; background: var(--gold-dim); margin: 28px 0;
+  }
+
+  /* ── FEATURED CAR ── */
+  .featured {
+    background: var(--dark);
+    display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; overflow: hidden;
+  }
+  .featured-img {
+    position: relative; overflow: hidden;
+    background: #0A0A0A;
+  }
+  .featured-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 8s ease;
+    filter: brightness(0.9) saturate(1.1);
+  }
+  .featured:hover .featured-img img { transform: scale(1.04); }
+  .featured-badge {
+    position: absolute; top: 30px; left: 30px;
+    background: var(--gold); color: var(--black);
+    font-size: 8px; letter-spacing: 3px; text-transform: uppercase;
+    padding: 6px 14px; font-weight: 400;
+  }
+  .featured-info {
+    padding: 80px 70px;
+    display: flex; flex-direction: column; justify-content: center;
+    border-left: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--dark) 0%, rgba(201,168,76,0.03) 100%);
+  }
+  .featured-brand {
+    font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+  }
+  .featured-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 58px); font-weight: 300; color: var(--white); line-height: 1.05;
+  }
+  .featured-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px; color: var(--gold); letter-spacing: 3px; margin: 22px 0;
+  }
+  .featured-desc {
+    font-size: 11px; color: var(--muted); line-height: 1.9; max-width: 400px; margin-bottom: 36px;
+  }
+  .spec-row { display: flex; gap: 36px; margin-bottom: 30px; }
+  .spec { }
+  .spec-val { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--white); letter-spacing: 2px; }
+  .spec-key { font-size: 8px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
+
+  /* ── CARS GRID ── */
+  .cars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .car-card {
+    position: relative; overflow: hidden;
+    background: var(--card-bg);
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    group: true;
+  }
+  .car-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.7s ease, filter 0.5s ease;
+    filter: brightness(0.75) saturate(0.9);
+  }
+  .car-card:hover img { transform: scale(1.08); filter: brightness(0.5) saturate(0.7); }
+  .car-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.2) 50%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 28px;
+    transition: background 0.4s;
+  }
+  .car-card:hover .car-overlay {
+    background: linear-gradient(to top, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0.6) 60%, rgba(8,8,8,0.2) 100%);
+  }
+  .car-tag {
+    font-size: 7px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+  }
+  .car-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400; color: var(--white); line-height: 1.15;
+  }
+  .car-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; color: var(--gold); letter-spacing: 2px; margin-top: 6px;
+  }
+  .car-details {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.4s ease;
+    opacity: 0;
+    font-size: 10px; color: var(--muted); line-height: 1.7; margin-top: 10px; letter-spacing: 0.5px;
+  }
+  .car-card:hover .car-details { max-height: 80px; opacity: 1; }
+  .car-num {
+    position: absolute; top: 20px; right: 22px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px; color: rgba(201,168,76,0.08);
+    line-height: 1;
+    pointer-events: none;
+    transition: color 0.4s;
+  }
+  .car-card:hover .car-num { color: rgba(201,168,76,0.15); }
+
+  /* ── COLLECTIONS ── */
+  .collections-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: repeat(2, 260px);
+    gap: 2px; margin-top: 48px;
+  }
+  .coll-item {
+    position: relative; overflow: hidden; cursor: pointer;
+  }
+  .coll-item:first-child { grid-row: span 2; }
+  .coll-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.7s ease;
+    filter: brightness(0.65);
+  }
+  .coll-item:hover img { transform: scale(1.07); filter: brightness(0.45); }
+  .coll-overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 60%);
+  }
+  .coll-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 300; color: var(--white); margin-bottom: 4px;
+  }
+  .coll-item:first-child .coll-name { font-size: 38px; }
+  .coll-count { font-size: 9px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
+  .coll-arrow {
+    position: absolute; top: 24px; right: 24px;
+    width: 38px; height: 38px; border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 16px;
+    opacity: 0; transition: opacity 0.3s, border-color 0.3s;
+  }
+  .coll-item:hover .coll-arrow { opacity: 1; border-color: var(--gold); }
+
+  /* ── MARQUEE ── */
+  .marquee-section {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0; overflow: hidden;
+    background: var(--dark);
+  }
+  .marquee-track {
+    display: flex; gap: 0;
+    animation: marquee 28s linear infinite;
+    white-space: nowrap;
+  }
+  .marquee-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px; letter-spacing: 5px; color: var(--muted);
+    padding: 0 40px;
+    display: inline-flex; align-items: center; gap: 40px;
+  }
+  .marquee-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── QUOTE ── */
+  .quote-section {
+    padding: 120px 60px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%);
+    position: relative; overflow: hidden;
+  }
+  .quote-section::before {
+    content: '"';
+    position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 400px; color: rgba(201,168,76,0.03);
+    line-height: 1; pointer-events: none;
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3.5vw, 48px); font-weight: 300; font-style: italic;
+    color: var(--white); max-width: 800px; margin: 0 auto;
+    line-height: 1.4;
+  }
+  .quote-author { font-size: 9px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-top: 30px; }
+
+  /* ── TIMELINE ── */
+  .timeline { margin-top: 60px; position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: var(--border);
+  }
+  .tl-item {
+    padding: 0 0 60px 50px;
+    position: relative;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute; left: -4px; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--gold-dim);
+    border: 2px solid var(--gold);
+    transition: background 0.3s;
+  }
+  .tl-item:hover::before { background: var(--gold); }
+  .tl-year { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--gold); letter-spacing: 3px; }
+  .tl-car { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--white); margin: 4px 0; }
+  .tl-desc { font-size: 10px; color: var(--muted); line-height: 1.8; max-width: 500px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 60px 60px 40px;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 50px;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; letter-spacing: 6px; color: var(--gold); text-decoration: none;
+  }
+  .footer-logo span { color: var(--white); }
+  .footer-tagline { font-size: 10px; color: var(--muted); letter-spacing: 2px; margin-top: 6px; }
+  .footer-links { display: flex; gap: 60px; }
+  .footer-col-title { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul li a { font-size: 10px; color: var(--muted); text-decoration: none; letter-spacing: 1px; transition: color 0.3s; }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 9px; color: var(--muted); letter-spacing: 2px; }
+  .footer-social { display: flex; gap: 16px; }
+  .social-btn {
+    width: 34px; height: 34px; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: var(--muted); text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── RANK STRIP ── */
+  .rank-strip {
+    background: var(--mid);
+    padding: 60px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .rank-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+  .rank-table th {
+    font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+    text-align: left; padding: 0 0 16px; border-bottom: 1px solid var(--border);
+    font-weight: 300;
+  }
+  .rank-table td {
+    padding: 20px 0; border-bottom: 1px solid rgba(201,168,76,0.07);
+    font-size: 11px; color: var(--muted); letter-spacing: 0.5px;
+    transition: color 0.3s;
+  }
+  .rank-table tr:hover td { color: var(--text); }
+  .rank-num { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: rgba(201,168,76,0.25); width: 60px; }
+  .rank-car-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--white); font-weight: 400; }
+  .rank-price-cell { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--gold); letter-spacing: 2px; }
+  .rank-bar-cell { width: 180px; }
+  .rank-bar-wrap { height: 2px; background: rgba(201,168,76,0.1); }
+  .rank-bar-fill { height: 2px; background: var(--gold); }
+
+  /* responsive nudges */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    nav ul { display: none; }
+    .hero { padding: 0 24px; }
+    .section { padding: 70px 24px; }
+    .featured { grid-template-columns: 1fr; }
+    .featured-info { padding: 40px 24px; border-left: none; border-top: 1px solid var(--border); }
+    .cars-grid { grid-template-columns: 1fr 1fr; }
+    .collections-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+    .coll-item:first-child { grid-row: span 1; grid-column: span 2; }
+    .hero-stats { display: none; }
+    .footer-top { flex-direction: column; gap: 40px; }
+    .footer-links { flex-wrap: wrap; gap: 30px; }
+    .rank-strip { padding: 40px 24px; }
+    .quote-section { padding: 80px 24px; }
+  }
+  @media (max-width: 600px) {
+    .cars-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#"><span>APEX</span> MOTORS</a>
+  <ul>
+    <li><a href="#collection">Collection</a></li>
+    <li><a href="#ranking">Rankings</a></li>
+    <li><a href="#history">Heritage</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-label">The Pinnacle of Automotive Excellence</p>
+  <h1 class="hero-title">BEYOND<br><em>Ordinary.</em><br>BEYOND<br>PRICE.</h1>
+  <p class="hero-sub">Where engineering becomes art. Curating the world's most coveted automobiles for discerning collectors since 1998.</p>
+  <div class="hero-cta">
+    <a href="#collection" class="btn-gold">View Collection</a>
+    <a href="#ranking" class="btn-outline">Top Rankings</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">47</div>
+      <div class="stat-lbl">Marques</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$2.4B+</div>
+      <div class="stat-lbl">Total Value</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">312</div>
+      <div class="stat-lbl">Rare Models</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll to Explore
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <!-- doubled for seamless loop -->
+    <span class="marquee-item">Bugatti <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Rolls-Royce <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Pagani <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Koenigsegg <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ferrari <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Lamborghini <span class="marquee-dot"></span></span>
+    <span class="marquee-item">McLaren <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Aston Martin <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Bentley <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Mercedes-AMG <span class="marquee-dot"></span></span>
+    <!-- repeat -->
+    <span class="marquee-item">Bugatti <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Rolls-Royce <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Pagani <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Koenigsegg <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Ferrari <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Lamborghini <span class="marquee-dot"></span></span>
+    <span class="marquee-item">McLaren <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Aston Martin <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Bentley <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Mercedes-AMG <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- FEATURED CAR -->
+<section id="featured">
+  <div class="featured">
+    <div class="featured-img">
+      <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=900&q=80" alt="Bugatti La Voiture Noire">
+      <div class="featured-badge">Featured Masterpiece</div>
+    </div>
+    <div class="featured-info">
+      <div class="featured-brand">Bugatti — 2023</div>
+      <h2 class="featured-name">La Voiture<br>Noire</h2>
+      <div class="featured-price">$18,700,000</div>
+      <p class="featured-desc">
+        The most expensive new car ever sold. A one-of-a-kind grand tourer honouring Bugatti's legendary Type 57 SC Atlantic. Its 8.0-litre W16 engine breathes through four turbos producing 1,479 bhp — all wrapped in a hand-sculpted carbon fibre body that took four years to perfect.
+      </p>
+      <div class="spec-row">
+        <div class="spec"><div class="spec-val">1,479</div><div class="spec-key">Horsepower</div></div>
+        <div class="spec"><div class="spec-val">2.4s</div><div class="spec-key">0–100 km/h</div></div>
+        <div class="spec"><div class="spec-val">420</div><div class="spec-key">Top km/h</div></div>
+        <div class="spec"><div class="spec-val">1</div><div class="spec-key">Units Built</div></div>
+      </div>
+      <a href="#" class="btn-gold">View Full Dossier</a>
+    </div>
+  </div>
+</section>
+
+<!-- CARS GRID -->
+<section class="section" id="collection">
+  <div class="section-label">The Pinnacle List</div>
+  <h2 class="section-title">World's Most <em>Expensive</em><br>Automobiles</h2>
+  <div class="divider"></div>
+  <div class="cars-grid">
+
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1614200187524-dc4b892acf16?w=700&q=80" alt="Rolls-Royce Boat Tail">
+      <div class="car-num">01</div>
+      <div class="car-overlay">
+        <div class="car-tag">Rolls-Royce · 2021</div>
+        <div class="car-name">Boat Tail</div>
+        <div class="car-price">$28,000,000</div>
+        <div class="car-details">A 3-of-3 coachbuilt icon featuring a hand-crafted hosting suite with a champagne cooler, parasol, and bespoke picnic set. The most expensive modern car ever created.</div>
+      </div>
+    </div>
+
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=700&q=80" alt="Pagani Zonda HP Barchetta">
+      <div class="car-num">02</div>
+      <div class="car-overlay">
+        <div class="car-tag">Pagani · 2018</div>
+        <div class="car-name">Zonda HP Barchetta</div>
+        <div class="car-price">$17,500,000</div>
+        <div class="car-details">Three units only. A roadster masterpiece with a 7.3L AMG V12 producing 800hp, clothed in a sculpted aluminium and carbon body that took Horacio Pagani years to perfect.</div>
+      </div>
+    </div>
+
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&q=80" alt="Koenigsegg CCXR Trevita">
+      <div class="car-num">03</div>
+      <div class="car-overlay">
+        <div class="car-tag">Koenigsegg · 2009</div>
+        <div class="car-name">CCXR Trevita</div>
+        <div class="car-price">$4,800,000</div>
+        <div class="car-details">Only 2 units built. Coated in diamond-weave carbon fiber — a proprietary process where diamonds are infused into the carbon, creating a shimmering white surface unlike anything else.</div>
+      </div>
+    </div>
+
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=700&q=80" alt="Ferrari Pininfarina Sergio">
+      <div class="car-num">04</div>
+      <div class="car-overlay">
+        <div class="car-tag">Ferrari · 2013</div>
+        <div class="car-name">Pininfarina Sergio</div>
+        <div class="car-price">$3,000,000</div>
+        <div class="car-details">Six units only. Named after Sergio Pininfarina, this topless speedster reimagines the Ferrari 458 Spider with dramatic aerodynamic sculpture and zero roof whatsoever.</div>
+      </div>
+    </div>
+
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=700&q=80" alt="Lamborghini Veneno">
+      <div class="car-num">05</div>
+      <div class="car-overlay">
+        <div class="car-tag">Lamborghini · 2013</div>
+        <div class="car-name">Veneno Roadster</div>
+        <div class="car-price">$4,500,000</div>
+        <div class="car-details">Nine units made. A motorsport fighter for the road. The 6.5L V12 engine delivers 750hp via a 7-speed ISR gearbox, accelerating to 100 km/h in a stunning 2.9 seconds.</div>
+      </div>
+    </div>
+
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=700&q=80" alt="McLaren Speedtail">
+      <div class="car-num">06</div>
+      <div class="car-overlay">
+        <div class="car-tag">McLaren · 2020</div>
+        <div class="car-name">Speedtail</div>
+        <div class="car-price">$2,250,000</div>
+        <div class="car-details">106 units. The spiritual successor to the legendary F1. A hybrid hyper-GT with a 1,055hp powertrain, three-seat layout, and a top speed of 403 km/h — the fastest road McLaren ever.</div>
+      </div>
+    </div>
+
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80" alt="Bugatti Chiron Super Sport">
+      <div class="car-num">07</div>
+      <div class="car-overlay">
+        <div class="car-tag">Bugatti · 2021</div>
+        <div class="car-name">Chiron Super Sport</div>
+        <div class="car-price">$3,900,000</div>
+        <div class="car-details">30 units only. Extended tail, longtail aerodynamics, and 1,578hp from a quad-turbo W16. Became the first production car to breach 490 km/h in a pre-production test.</div>
+      </div>
+    </div>
+
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=700&q=80" alt="Aston Martin Valkyrie">
+      <div class="car-num">08</div>
+      <div class="car-overlay">
+        <div class="car-tag">Aston Martin · 2022</div>
+        <div class="car-name">Valkyrie AMR Pro</div>
+        <div class="car-price">$3,200,000</div>
+        <div class="car-details">25 units. Designed with Red Bull Racing's Adrian Newey — a pure F1 car for the road. A naturally aspirated 6.5L V12 revving to 11,100rpm screams out 1,000hp with zero electronic aids.</div>
+      </div>
+    </div>
+
+    <div class="car-card">
+      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=700&q=80" alt="Rimac Nevera">
+      <div class="car-num">09</div>
+      <div class="car-overlay">
+        <div class="car-tag">Rimac · 2022</div>
+        <div class="car-name">Nevera</div>
+        <div class="car-price">$2,400,000</div>
+        <div class="car-details">150 units. The world's most powerful production car: 1,914hp from four independent electric motors. 0–100 km/h in 1.97 seconds — redefining what electric performance means.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RANKING TABLE -->
+<section class="rank-strip" id="ranking">
+  <div class="section-label">Price Hierarchy</div>
+  <h2 class="section-title">The <em>Definitive</em> Ranking</h2>
+  <table class="rank-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Vehicle</th>
+        <th>Manufacturer</th>
+        <th>Year</th>
+        <th>Price (USD)</th>
+        <th style="width:200px">Relative Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="rank-num">1</td>
+        <td><div class="rank-car-name">Rolls-Royce Boat Tail</div></td>
+        <td>Rolls-Royce</td>
+        <td>2021</td>
+        <td class="rank-price-cell">$28,000,000</td>
+        <td class="rank-bar-cell"><div class="rank-bar-wrap"><div class="rank-bar-fill" style="width:100%"></div></div></td>
+      </tr>
+      <tr>
+        <td class="rank-num">2</td>
+        <td><div class="rank-car-name">Bugatti La Voiture Noire</div></td>
+        <td>Bugatti</td>
+        <td>2023</td>
+        <td class="rank-price-cell">$18,700,000</td>
+        <td class="rank-bar-cell"><div class="rank-bar-wrap"><div class="rank-bar-fill" style="width:67%"></div></div></td>
+      </tr>
+      <tr>
+        <td class="rank-num">3</td>
+        <td><div class="rank-car-name">Pagani Zonda HP Barchetta</div></td>
+        <td>Pagani</td>
+        <td>2018</td>
+        <td class="rank-price-cell">$17,500,000</td>
+        <td class="rank-bar-cell"><div class="rank-bar-wrap"><div class="rank-bar-fill" style="width:63%"></div></div></td>
+      </tr>
+      <tr>
+        <td class="rank-num">4</td>
+        <td><div class="rank-car-name">Bugatti Centodieci</div></td>
+        <td>Bugatti</td>
+        <td>2022</td>
+        <td class="rank-price-cell">$9,000,000</td>
+        <td class="rank-bar-cell"><div class="rank-bar-wrap"><div class="rank-bar-fill" style="width:32%"></div></div></td>
+      </tr>
+      <tr>
+        <td class="rank-num">5</td>
+        <td><div class="rank-car-name">Koenigsegg Jesko Absolut</div></td>
+        <td>Koenigsegg</td>
+        <td>2022</td>
+        <td class="rank-price-cell">$3,000,000</td>
+        <td class="rank-bar-cell"><div class="rank-bar-wrap"><div class="rank-bar-fill" style="width:11%"></div></div></td>
+      </tr>
+      <tr>
+        <td class="rank-num">6</td>
+        <td><div class="rank-car-name">Lamborghini Veneno Roadster</div></td>
+        <td>Lamborghini</td>
+        <td>2014</td>
+        <td class="rank-price-cell">$4,500,000</td>
+        <td class="rank-bar-cell"><div class="rank-bar-wrap"><div class="rank-bar-fill" style="width:16%"></div></div></td>
+      </tr>
+      <tr>
+        <td class="rank-num">7</td>
+        <td><div class="rank-car-name">Bugatti Chiron Super Sport</div></td>
+        <td>Bugatti</td>
+        <td>2021</td>
+        <td class="rank-price-cell">$3,900,000</td>
+        <td class="rank-bar-cell"><div class="rank-bar-wrap"><div class="rank-bar-fill" style="width:14%"></div></div></td>
+      </tr>
+      <tr>
+        <td class="rank-num">8</td>
+        <td><div class="rank-car-name">McLaren Speedtail</div></td>
+        <td>McLaren</td>
+        <td>2020</td>
+        <td class="rank-price-cell">$2,250,000</td>
+        <td class="rank-bar-cell"><div class="rank-bar-wrap"><div class="rank-bar-fill" style="width:8%"></div></div></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <p class="quote-text">"A car is not just a machine. At this level, it is a philosophy made physical — a declaration that the pursuit of perfection is worth every obsessive hour."</p>
+  <div class="quote-author">Ferdinand Piëch — Automotive Visionary</div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="section" id="collection">
+  <div class="section-label">Curated Collections</div>
+  <h2 class="section-title">Thematic <em>Archives</em></h2>
+  <div class="divider"></div>
+  <div class="collections-grid">
+    <div class="coll-item">
+      <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80" alt="Hypercar Collection">
+      <div class="coll-overlay">
+        <div class="coll-name">Hypercar Masters</div>
+        <div class="coll-count">28 Vehicles</div>
+      </div>
+      <div class="coll-arrow">→</div>
+    </div>
+    <div class="coll-item">
+      <img src="https://images.unsplash.com/photo-1521577352947-9bb58764b69a?w=600&q=80" alt="Classic Collection">
+      <div class="coll-overlay">
+        <div class="coll-name">Classic Era</div>
+        <div class="coll-count">54 Vehicles</div>
+      </div>
+      <div class="coll-arrow">→</div>
+    </div>
+    <div class="coll-item">
+      <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&q=80" alt="Electric Elite">
+      <div class="coll-overlay">
+        <div class="coll-name">Electric Elite</div>
+        <div class="coll-count">19 Vehicles</div>
+      </div>
+      <div class="coll-arrow">→</div>
+    </div>
+    <div class="coll-item">
+      <img src="https://images.unsplash.com/photo-1605559424843-9073c6223f35?w=600&q=80" alt="Le Mans Heritage">
+      <div class="coll-overlay">
+        <div class="coll-name">Le Mans Heritage</div>
+        <div class="coll-count">11 Vehicles</div>
+      </div>
+      <div class="coll-arrow">→</div>
+    </div>
+    <div class="coll-item">
+      <img src="https://images.unsplash.com/photo-1536700503-00ec11b4fbbf?w=600&q=80" alt="British Icons">
+      <div class="coll-overlay">
+        <div class="coll-name">British Icons</div>
+        <div class="coll-count">33 Vehicles</div>
+      </div>
+      <div class="coll-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY TIMELINE -->
+<section class="section" id="history">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+    <div>
+      <div class="section-label">Heritage & Legacy</div>
+      <h2 class="section-title">Milestones in<br><em>Automotive</em><br>History</h2>
+      <div class="divider"></div>
+      <p style="font-size:11px;color:var(--muted);line-height:1.9;max-width:420px;">
+        The rarest automobiles in history were not simply manufactured. They were agonised over, hand-built by artisans who devoted careers to the pursuit of mechanical perfection. Each milestone represents a moment when human ambition outpaced convention.
+      </p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1936</div>
+        <div class="tl-car">Bugatti Type 57 SC Atlantic</div>
+        <div class="tl-desc">Only 4 were built. One vanished during WWII. At auction, chassis 57374 sold for an estimated $40 million — the holy grail of automotive art.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1962</div>
+        <div class="tl-car">Ferrari 250 GTO</div>
+        <div class="tl-desc">36 units. The most valuable production car ever. A 1963 GTO sold privately in 2018 for $70 million, setting the all-time record for any car at auction.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1992</div>
+        <div class="tl-car">McLaren F1</div>
+        <div class="tl-desc">106 units. Held the production car speed record for 9 years at 386 km/h. A 1994 example sold for $20.5 million — proving timeless engineering never depreciates.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2005</div>
+        <div class="tl-car">Bugatti Veyron</div>
+        <div class="tl-desc">450 units. The car that redefined what was possible. 1,001hp, top speed of 407 km/h, and a development cost of $1.5 billion — sold at a loss on every single car.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2021</div>
+        <div class="tl-car">Rolls-Royce Boat Tail</div>
+        <div class="tl-desc">Three units. The most expensive new car ever produced at $28 million each, heralding a new era of ultra-bespoke coachbuilt automobiles for the ultra-wealthy.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div>
+      <a class="footer-logo" href="#"><span>APEX</span> MOTORS</a>
+      <div class="footer-tagline">Where Every Car Has a Story Worth Millions</div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Collection</div>
+        <ul>
+          <li><a href="#">Hypercars</a></li>
+          <li><a href="#">Grand Tourers</a></li>
+          <li><a href="#">Classic Icons</a></li>
+          <li><a href="#">Electric Elite</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul>
+          <li><a href="#">Private Viewings</a></li>
+          <li><a href="#">Acquisition Advisory</a></li>
+          <li><a href="#">Storage & Care</a></li>
+          <li><a href="#">Valuations</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <ul>
+          <li><a href="#">About Apex</a></li>
+          <li><a href="#">Journal</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Apex Motors. All Rights Reserved. &nbsp;·&nbsp; Geneva &nbsp;·&nbsp; London &nbsp;·&nbsp; Dubai &nbsp;·&nbsp; Tokyo</div>
+    <div class="footer-social">
+      <a class="social-btn" href="#">f</a>
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">ig</a>
+      <a class="social-btn" href="#">yt</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.car-card, .coll-item, .tl-item, .featured, .rank-table tr').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+
+  // Nav background on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(8,8,8,0.97)';
+    } else {
+      nav.style.background = 'linear-gradient(to bottom, rgba(8,8,8,0.95), transparent)';
+    }
+  });
+</script>
+</body>
+</html>

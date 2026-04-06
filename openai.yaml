@@ -1,0 +1,4 @@
+name: openai
+description: Agent for OpenAI API integration and AI-powered tasks
+version: 1.0.0
+author: AI Assistant

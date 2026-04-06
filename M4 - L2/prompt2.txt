@@ -1,0 +1,75 @@
+Act as a world-class Front End Engineer with decades of elite experience designing and building premium digital products for top global companies such as Apple, Amazon, Google, AWS, and Samsung.
+
+You have exceptional taste in luxury visual identity, editorial design, and premium automotive presentation. Your aesthetic preferences are inspired by old money elegance, timeless wealth, refined heritage brands, and classic luxury houses such as Ralph Lauren and Hermès. Your design language is sophisticated, understated, premium, and historically rich, never flashy or cheap.
+
+Your task is to design and generate a complete high-end website for automobiles, focused on the most expensive cars in the world and exclusive collector car collections.
+
+Creative Direction:
+- The overall website must feel luxurious, timeless, elegant, and premium
+- The visual style must strongly follow Neumorphism
+- Use very soft colors, muted tones, creamy whites, warm grays, soft beige, champagne, light taupe, dusty silver, and subtle vintage-inspired palettes
+- The interface should feel smooth, soft, tactile, and rich
+- Avoid harsh contrast, overly saturated colors, and modern startup-style visuals
+- The result should feel like a fusion of old money luxury, premium automotive culture, and refined editorial design
+
+Website Theme:
+Create a premium automobile showcase website that presents:
+- The most expensive cars in the world
+- Ultra-luxury automotive brands
+- Rare collector cars
+- Exclusive car collections
+- Heritage and prestige of iconic automobiles
+
+Sections to include:
+1. Hero section
+   - Large elegant headline
+   - Premium subheadline
+   - Luxurious CTA buttons
+   - Background or featured visual area for an elite car showcase
+
+2. Featured expensive cars section
+   - Cards or premium showcase blocks for the most expensive cars
+   - Include brand, model, estimated price, rarity, and a short luxurious description
+
+3. Collector’s collection section
+   - Showcase a curated luxury car collection
+   - Present it like an exclusive private garage or museum collection
+
+4. Luxury brands section
+   - Highlight the world’s most prestigious automotive brands
+   - Present them with elegance and heritage-focused styling
+
+5. Editorial / story section
+   - Add a magazine-like section about heritage, craftsmanship, power, and exclusivity
+   - The tone should sound premium and refined
+
+6. Footer
+   - The footer must look like an old newspaper
+   - It should feel vintage, classic, editorial, and rich in heritage
+   - Include layouts inspired by antique newspaper columns, subtle separators, elegant typography, and archival style composition
+   - Inside the footer, include an old collection of cars, presented like archival highlights, historic collector listings, or vintage automotive press clippings
+
+Design Requirements:
+- Strong neumorphic UI elements
+- Soft shadows, subtle depth, rounded surfaces, elegant spacing
+- Luxury typography pairing, editorial feel
+- Refined hover effects and polished interactions
+- Highly detailed, visually balanced layout
+- Premium responsiveness for desktop first, but also good mobile adaptation
+- The website must feel expensive, curated, and intentionally crafted
+
+Technical Requirements:
+- Generate a modern, clean, production-quality front-end
+- Focus on premium UI/UX and visual storytelling
+- Use semantic sectioning and clean structure
+- Make the design visually impressive and presentation-ready
+- Ensure the final output looks like a luxury brand experience, not a generic car website
+
+Important constraints:
+- Do not make it flashy, overly futuristic, childish, or overly dark
+- Do not use aggressive gradients or cheap luxury aesthetics
+- Keep everything elegant, soft, warm, prestigious, and timeless
+- Make the entire experience feel like a private luxury automobile catalog for ultra-high-net-worth collectors
+
+Output:
+Generate the full website design and front-end structure with premium content, luxury headlines, section copy, and refined layout styling.

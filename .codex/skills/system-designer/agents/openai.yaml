@@ -1,0 +1,4 @@
+interface:
+  display_name: "System Designer"
+  short_description: "Design scalable systems, architectures, and technical solutions"
+  default_prompt: "Use $system-designer to design a scalable architecture for this system, define components, data flow, and key technical decisions."

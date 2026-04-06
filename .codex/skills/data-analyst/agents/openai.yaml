@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Analyst"
+  short_description: "Analyze sensitive data, trends, and bottlenecks"
+  default_prompt: "Use $data-analyst to analyze this sensitive dataset, identify bottlenecks or anomalies, and summarize the key findings safely."
